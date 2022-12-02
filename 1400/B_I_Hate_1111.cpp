@@ -19,29 +19,16 @@ ll ceil(ll a, ll b) {
 }
 
 void solve(){
-    ll n, a, b;
-    cin >> n >> a >> b;
+    ll n;
+    cin >> n;
     
-    // every number of the form a^x + by
-
-    if (a==1){
-        cout << (n%b == 1 || b == 1? "Yes" : "No") << endl;
-        return;
+    ll div = n/11, re = n%11;
+    if (div >= 10*re){
+        cout << "YES" << endl;
     }
-
-
-    ll i = 1;
-    while(i <= n){
-        if ((n-i)%b == 0){
-            cout << "Yes" << endl;
-            return;
-        }
-
-        i*=a;
-    }   
-
-    cout << "No" << endl;
-
+    else{
+        cout << "NO" << endl;
+    }
     
 }
 

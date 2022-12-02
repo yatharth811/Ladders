@@ -19,30 +19,23 @@ ll ceil(ll a, ll b) {
 }
 
 void solve(){
-    ll n, a, b;
-    cin >> n >> a >> b;
-    
-    // every number of the form a^x + by
+    ll n, l, r;
+    cin >> n >> l >> r;
+    vi a(n);
+    rep(i,0,n){cin >> a[i];}
+    sort(a.begin(), a.end());
+    ll ans = 0;
 
-    if (a==1){
-        cout << (n%b == 1 || b == 1? "Yes" : "No") << endl;
-        return;
+    rep(i,0,n){
+        // l <= a[i] + x <= r
+        // l - a[i] <= x <= r - a[i]
+        ll c = upper_bound(begin(a), end(a), r - a[i]) - begin(a) - 1; // last element with r - a[i]
+        ll d = upper_bound(begin(a), end(a), l - a[i] - 1) - begin(a); // first element with l - a[i]
+        if (d <= c) ans += c-d+ (d <= i && i <= c ? 0 : 1);
     }
 
+    cout << ans/2 << endl;
 
-    ll i = 1;
-    while(i <= n){
-        if ((n-i)%b == 0){
-            cout << "Yes" << endl;
-            return;
-        }
-
-        i*=a;
-    }   
-
-    cout << "No" << endl;
-
-    
 }
 
 
