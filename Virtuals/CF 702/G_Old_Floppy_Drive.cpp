@@ -18,8 +18,6 @@ ll ceil(ll a, ll b) {
     return (a + b - 1) / b; 
 }
 
-
-
 void solve(){
     ll n, m;
     cin >> n >> m;
@@ -50,7 +48,7 @@ void solve(){
         ll x;
         cin >> x;
 
-
+        
         if (sum > 0){
 
         }
