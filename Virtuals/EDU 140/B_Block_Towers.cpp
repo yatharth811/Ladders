@@ -22,33 +22,27 @@ void solve(){
     ll n;
     cin >> n;
 
-    // window remains from 1 to n
-    ll i = 1, j = 1;
-
-    vector<char> s(n+1);
-
-    while(j++ <= n){
-        cout << "? 2 " << i << " " << j << endl;
-        ll res;
-        cin >> res;
-
-        if (res == j){
-            cout << "? 1 " << j << endl;
-            cin >> s[j];
+    ll x;
+    cin >> x;
+    vi a(n-1);
+    rep(i,0,n-1){
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    rep(i,0,n-1){
+        if (a[i] > x){
+            x += ceil(a[i]-x, 2);
         }
-        else{
-
-        }
-
     }
 
+    cout << x << endl;
 }
 
 
 int main() {
-    // FAST;
+    FAST;
     ll t=1;
-    // cin >> t;
+    cin >> t;
     while(t--){
         solve();
     }
